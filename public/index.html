@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Font Family -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Stylesheet -->
+        <link href="css/style.css" rel="stylesheet" />
+        <!-- Fav Icon -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <!-- Title -->
+        <title>HimeWorld</title>
+    </head>
+    <body>
+        <header
+            class="absolute top-0 left-0 w-full flex items-center z-10 border-b-2 border-dsr"
+        >
+            <div class="container">
+                <div class="flex items-center justify-between relative py-3">
+                    <div class="px-4">
+                        <a
+                            href="#home"
+                            class="font-bold text-base text-dsr block leading-none"
+                            >姫天使! <br /><span
+                                class="text-[11px] font-normal text-dark"
+                                >Hi Hime</span
+                            ></a
+                        >
+                    </div>
+                    <div class="flex items-center px-4">
+                        <button
+                            id="hamburger"
+                            name="humberger"
+                            type="button"
+                            class="blok absolute right-4 lg:hidden"
+                        >
+                            <span
+                                class="hamburger-line origin-top-left duration-300 ease-in-out"
+                            ></span>
+                            <span
+                                class="hamburger-line duration-300 ease-in-out"
+                            ></span>
+                            <span
+                                class="hamburger-line origin-bottom-left duration-300 ease-in-out"
+                            ></span>
+                        </button>
+
+                        <nav
+                            id="nav-menu"
+                            class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none"
+                        >
+                            <ul class="block lg:flex">
+                                <li class="group">
+                                    <a
+                                        href="#home"
+                                        class="text-base text-black py-2 mx-8 flex hover:text-dsr"
+                                        >Homepage</a
+                                    >
+                                </li>
+                                <li class="group">
+                                    <a
+                                        href="#about"
+                                        class="text-base text-black py-2 mx-8 flex hover:text-dsr"
+                                        >Information</a
+                                    >
+                                </li>
+                                <li class="group">
+                                    <a
+                                        href="#potofolio"
+                                        class="text-base text-black py-2 mx-8 flex hover:text-dsr"
+                                        >Search About Hime</a
+                                    >
+                                </li>
+                                <li class="group">
+                                    <a
+                                        href="#potofolio"
+                                        class="text-base text-black py-2 mx-8 flex hover:text-dsr"
+                                        >Portofolio</a
+                                    >
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="home" class="pt-20">
+            <div class="container">
+                <div class="flex flex-wrap">
+                    <div class="w-full h-96 self-center px-4 lg:w-1/2 mb-7">
+                        <div class="mt-20">
+                            <div class="max-w-xl flex flex-nowrap items-center">
+                                <div class="w-10 h-4 bg-dsr"></div>
+                                <div class="w-20 h-[2px] bg-dsr"></div>
+                            </div>
+                            <h1
+                                class="text-base md:text-xl lg:text-2xl font-semibold text-dsr pt-6"
+                            >
+                                Bubub Akuuu
+                            </h1>
+                            <h2
+                                class="font-medium text-slate-500 text-sm mb-5 lg:text-2xl"
+                            >
+                                Kadang <span class="multiText"></span>
+                            </h2>
+                        </div>
+
+                        <h3 class="absolute bottom-10 w-8/12 text-sm">
+                            Kamu keren karena aku menyukai kamu.
+                        </h3>
+                    </div>
+                    <div
+                        class="w-full h-full bg-black self-center px-4 lg:w-1/2"
+                    >
+                        <div class="max-w-xl flex flex-nowrap items-center">
+                            <div class="w-10 h-4 bg-dsr"></div>
+                            <div class="w-20 h-[2px] bg-dsr"></div>
+                        </div>
+
+                        <h1
+                            class="text-base md:text-xl lg:text-2xl font-semibold text-dsr pt-6"
+                        >
+                            Waifu saya
+                        </h1>
+                        <h2
+                            class="font-medium text-slate-500 text-lg mb-5 lg:text-2xl"
+                        >
+                            We are <span class="multiText"></span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="../src/js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <script>
+            var typingeffect = new Typed(".multiText", {
+                strings: ["Moodyan", "Ngeselinnn", "Gemesss"],
+                loop: true,
+                typeSpeed: 100,
+                backSpeed: 80,
+                backDelay: 1500,
+            });
+        </script>
+    </body>
+</html>
