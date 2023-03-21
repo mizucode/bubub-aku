@@ -21,6 +21,9 @@ module.exports = {
             backgroundImage: {
                 "hero-pattern": "url('/img/hero.jpeg')",
             },
+            fontSize: {
+                "10xl": "10rem",
+            },
         },
         plugins: [],
     },
