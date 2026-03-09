@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+@source "./public";
+@theme {
+  --color-dsr: #e384ff;
+  --color-ylw: #f4bc2b;
+  --color-dark: #232323;
+  --color-darkdsr: #37306b;
+  --color-lightdsr: #66347f;
+  --font-poppins: 'Poppins', sans-serif;
+  --breakpoint-2xl: 1320px;
+  --background-image-hero-pattern: url('/img/hero.jpeg');
+  --background-image-sidebar-pattern: url('/img/sidebar.webp');
+  --text-10xl: 10rem;
+}

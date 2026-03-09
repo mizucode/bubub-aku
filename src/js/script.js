@@ -1,31 +1,29 @@
 window.onscroll = function () {
-    const header = document.querySelector("header");
-    const fixedNav = header.offsetTop;
-    const toTop = document.querySelector("#to-top");
+  const header = document.querySelector('header')
+  const fixedNav = header ? header.offsetTop : 0
+  const toTop = document.querySelector('#to-top')
 
-    if (window.pageYOffset > fixedNav) {
-        header.classList.add("navbar-fixed");
-        toTop.classList.remove("hidden");
-        toTop.classList.add("flex");
-    } else {
-        header.classList.remove("navbar-fixed");
-        toTop.classList.remove("flex");
-        toTop.classList.add("hidden");
+  if (window.pageYOffset > fixedNav) {
+    if (header) header.classList.add('navbar-fixed')
+    if (toTop) {
+      toTop.classList.remove('hidden')
+      toTop.classList.add('flex')
     }
-};
+  } else {
+    if (header) header.classList.remove('navbar-fixed')
+    if (toTop) {
+      toTop.classList.remove('flex')
+      toTop.classList.add('hidden')
+    }
+  }
+}
 
-const hamburger = document.querySelector("#hamburger");
-const navMenu = document.querySelector("#nav-menu");
+const hamburger = document.querySelector('#hamburger')
+const navMenu = document.querySelector('#nav-menu')
 
-hamburger.addEventListener("click", function () {
-    hamburger.classList.toggle("hamburger-active");
-    navMenu.classList.toggle("hidden");
-});
-
-var typingeffect = new Typed(".multiText", {
-    strings: ["Anime", "Lorem", "Bayangan"],
-    loop: true,
-    typeSpeed: 100,
-    backSpeed: 80,
-    backDelay: 1500,
-});
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle('hamburger-active')
+    navMenu.classList.toggle('hidden')
+  })
+}

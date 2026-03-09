@@ -1,226 +1,659 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Font Family -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-            rel="stylesheet"
-        />
-        <!-- Stylesheet -->
-        <link href="css/style.css" rel="stylesheet" />
-        <!-- Fav Icon -->
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-        <!-- Title -->
-        <title>HimeWorld</title>
-    </head>
-    <body>
-        <header
-            class="absolute top-0 left-0 w-full flex items-center z-10 border-b-2 border-dsr"
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <!-- Fav Icon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Title -->
+    <title>HimeWorld 💖</title>
+    <!-- Custom Style for Micro-animations and Overrides -->
+    <style>
+      .font-dancing {
+        font-family: 'Dancing Script', cursive;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+      }
+      .text-gradient {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(to right, #e384ff, #66347f);
+      }
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+      .floating-delayed {
+        animation: floating 4s ease-in-out infinite 1s;
+      }
+      @keyframes floating {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+      body {
+        background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        position: relative;
+      }
+      /* Cute background blobs */
+      .blob-1 {
+        position: absolute;
+        top: -100px;
+        left: -100px;
+        width: 400px;
+        height: 400px;
+        background: #e384ff;
+        border-radius: 50%;
+        opacity: 0.2;
+        filter: blur(60px);
+        z-index: -1;
+        animation: floating 6s infinite;
+      }
+      .blob-2 {
+        position: absolute;
+        bottom: 100px;
+        right: -50px;
+        width: 350px;
+        height: 350px;
+        background: #f4bc2b;
+        border-radius: 50%;
+        opacity: 0.15;
+        filter: blur(60px);
+        z-index: -1;
+        animation: floating-delayed 7s infinite;
+      }
+      .blob-3 {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        width: 500px;
+        height: 500px;
+        background: #ff9a9e;
+        border-radius: 50%;
+        opacity: 0.15;
+        filter: blur(80px);
+        z-index: -1;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body class="font-poppins text-slate-800 antialiased overflow-x-hidden min-h-screen">
+    <!-- Background Elements -->
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+    <div class="blob-3"></div>
+
+    <!-- Navigation -->
+    <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50 transition-all duration-300">
+      <div class="glass-panel rounded-full px-6 py-3 flex items-center justify-between shadow-lg shadow-dsr/10">
+        <div class="flex items-center gap-2">
+          <span class="text-3xl">🌸</span>
+          <a href="#home" class="font-bold text-2xl text-gradient font-dancing tracking-wide">姫天使!</a>
+        </div>
+
+        <nav id="nav-menu" class="hidden md:block">
+          <ul class="flex items-center gap-6">
+            <li><a href="#home" class="text-sm font-medium text-slate-600 hover:text-dsr transition-colors">Home 💖</a></li>
+            <li><a href="#story" class="text-sm font-medium text-slate-600 hover:text-dsr transition-colors">Our Story ✨</a></li>
+            <li><a href="#gallery" class="text-sm font-medium text-slate-600 hover:text-dsr transition-colors">Information 💌</a></li>
+          </ul>
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <span class="hidden md:block text-sm font-semibold text-dsr bg-dsr/10 px-4 py-1.5 rounded-full">Hi Hime 💕</span>
+          <button id="hamburger" class="md:hidden block focus:outline-none">
+            <span class="hamburger-line block w-6 h-0.5 bg-slate-700 mb-1.5 transition-all"></span>
+            <span class="hamburger-line block w-6 h-0.5 bg-slate-700 mb-1.5 transition-all"></span>
+            <span class="hamburger-line block w-6 h-0.5 bg-slate-700 transition-all"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-24 pb-12 relative overflow-hidden">
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-wrap items-center">
+          <!-- Text Content -->
+          <div class="w-full lg:w-1/2 px-4 mb-16 lg:mb-0" data-aos="fade-right" data-aos-duration="1000">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel shadow-sm mb-6 border-dsr/30">
+              <span class="text-dsr animate-pulse">❤️</span>
+              <span class="text-sm font-semibold text-slate-600">Teruntuk Kesayanganku</span>
+            </div>
+
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 font-dancing">
+              <span class="text-gradient">Bubub Akuuu</span>
+            </h1>
+
+            <h2 class="text-xl md:text-3xl text-slate-600 mb-6 font-medium leading-relaxed">
+              Yang kadang <span class="multiText text-dsr font-bold border-b-2 border-dsr/30 pb-1"></span>
+            </h2>
+
+            <div class="glass-panel p-6 rounded-2xl border-l-4 border-dsr mb-8 inline-block shadow-md">
+              <p class="text-lg md:text-xl text-slate-700 italic">
+                "kawaii kara suki nan janai." <br />
+                <span class="text-sm text-slate-500 font-medium not-italic mt-2 block">— You are more than just cute to me.</span>
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#story"
+                class="px-8 py-3 bg-gradient-to-r from-dsr to-lightdsr text-white font-semibold rounded-full shadow-lg shadow-dsr/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              >
+                Liat Sini Yuk 💌
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Cards / Images -->
+          <div class="w-full lg:w-1/2 px-4" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+            <div class="relative max-w-md mx-auto h-[450px] lg:h-[550px]">
+              <!-- Card 1: The Image -->
+              <div
+                class="absolute top-0 right-0 lg:right-4 w-64 md:w-72 aspect-[3/4] glass-panel p-3 rounded-2xl shadow-xl rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-500 z-20 floating"
+              >
+                <div class="w-full h-[85%] rounded-xl overflow-hidden relative">
+                  <!-- Existing Hero Image -->
+                  <img
+                    src="../img/hero.jpeg"
+                    alt="Our Memories"
+                    class="w-full h-full object-cover"
+                    onerror="this.src = 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400&auto=format&fit=crop'"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-3 left-3">
+                    <p class="text-white text-xs font-medium tracking-wider">August 01.</p>
+                    <p class="text-white font-bold text-lg">BaeUput 💕</p>
+                  </div>
+                </div>
+                <div class="h-[15%] flex items-center justify-center">
+                  <p class="font-dancing text-2xl text-dsr font-bold">My Favorite</p>
+                </div>
+              </div>
+
+              <!-- Card 2: 19 putriEnjeli Backdrop -->
+              <div
+                class="absolute bottom-10 left-0 lg:left-4 w-56 md:w-64 aspect-square bg-gradient-to-br from-lightdsr to-dsr p-6 rounded-3xl shadow-2xl -rotate-6 hover:-rotate-3 hover:scale-105 transition-all duration-500 z-10 floating-delayed flex flex-col justify-between text-white border border-white/20"
+              >
+                <div class="flex justify-between items-start">
+                  <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Design by Mizucode</span>
+                  <span class="text-2xl">✨</span>
+                </div>
+                <div class="flex-grow flex items-center justify-center">
+                  <h1 class="font-bold text-8xl md:text-9xl tracking-tighter drop-shadow-lg">19</h1>
+                </div>
+                <div>
+                  <h2 class="font-medium text-lg text-white/90">putriEnjeli</h2>
+                </div>
+              </div>
+
+              <!-- Decorative floating elements -->
+              <div class="absolute top-20 left-10 text-4xl animate-bounce" style="animation-duration: 3s">💖</div>
+              <div class="absolute bottom-20 right-[-20px] text-3xl animate-bounce" style="animation-duration: 4s; animation-delay: 1s">✨</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Sections -->
+    <section id="story" class="py-20 relative">
+      <div class="container mx-auto px-6 relative z-10">
+        <div
+          class="glass-panel rounded-3xl p-8 lg:p-14 shadow-xl border-t border-l border-white/60 mb-12 relative overflow-hidden"
+          data-aos="fade-up"
+          data-aos-duration="1000"
         >
-            <div class="container">
-                <div class="flex items-center justify-between relative py-3">
-                    <div class="px-4 lg:w-32 w-28 flex flex-wrap">
-                        <a
-                            href="#home"
-                            class="font-bold text-base lg:text-2xl text-dsr block leading-none"
-                            >姫天使!</a
-                        >
-                        <a href="#" class="text-[11px] lg:text-base">Hi Hime</a>
-                    </div>
-                    <div class="flex items-center px-4">
-                        <button
-                            id="hamburger"
-                            name="humberger"
-                            type="button"
-                            class="blok absolute right-4 lg:hidden"
-                        >
-                            <span
-                                class="hamburger-line origin-top-left duration-300 ease-in-out"
-                            ></span>
-                            <span
-                                class="hamburger-line duration-300 ease-in-out"
-                            ></span>
-                            <span
-                                class="hamburger-line origin-bottom-left duration-300 ease-in-out"
-                            ></span>
-                        </button>
+          <!-- Abstract corner decoration -->
+          <div class="absolute -right-16 -top-16 w-64 h-64 bg-dsr/10 rounded-full blur-3xl z-0"></div>
 
-                        <nav
-                            id="nav-menu"
-                            class="hidden absolute lg:py-0 mt-1 lg:mt-0 bg-lightdsr shadow-lg rounded-l-lg bg-fill max-w-[250px] w-full -right-4 top-full overflow-hidden lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none"
-                        >
-                            <ul class="block lg:flex">
-                                <li class="group hover:bg-dsr text-center">
-                                    <a
-                                        href="#home"
-                                        class="text-base w-10/12 lg:w-full lg:mx-2 text-center text-white lg:text-black py-2 flex border-b-[1px] border-[rgba(255,255,255,0.46)]"
-                                        >Homepage</a
-                                    >
-                                </li>
-                                <li class="group hover:bg-dsr text-center">
-                                    <a
-                                        href="#home"
-                                        class="text-base w-10/12 lg:w-full lg:mx-2 text-center text-white lg:text-black py-2 flex border-b-[1px] border-[rgba(255,255,255,0.46)]"
-                                        >Homepage</a
-                                    >
-                                </li>
-                                <li class="group hover:bg-dsr text-center">
-                                    <a
-                                        href="#home"
-                                        class="text-base w-10/12 lg:w-full lg:mx-2 text-center text-white lg:text-black py-2 flex border-b-[1px] border-[rgba(255,255,255,0.46)]"
-                                        >Homepage</a
-                                    >
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <section id="home" class="pt-20 lg:pt-36">
-            <div class="container border-b-4 border-dsr">
-                <div
-                    class="w-full px-4 flex flex-wrap justify-evenly xl:mx-auto"
+          <div class="flex flex-col md:flex-row items-center md:items-end justify-between gap-8 relative z-10">
+            <div class="w-full md:w-2/3">
+              <span class="text-dsr font-semibold text-sm tracking-widest uppercase mb-2 block">Our First Chapter</span>
+              <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-800 mb-2 relative">
+                Our Timeline
+                <!-- Shadow duplicate for artistic effect hidden on small -->
+                <span
+                  class="text-5xl md:text-6xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400 opacity-40 absolute -top-4 -left-4 -z-10 select-none hidden md:block"
                 >
-                    <div
-                        class="max-w-xl mb-24 lg:my-0 lg:mb-10 w-full lg:w-1/4 lg:h-[30rem] h-screen relative"
-                    >
-                        <div class="mt-20">
-                            <div class="max-w-xl flex flex-nowrap items-center">
-                                <div class="w-10 h-4 bg-dsr"></div>
-                                <div class="w-20 h-[2px] bg-dsr"></div>
-                            </div>
-
-                            <div>
-                                <h1
-                                    class="text-base md:text-xl lg:text-2xl font-semibold text-dsr pt-6"
-                                >
-                                    Bubub Akuuu
-                                </h1>
-                                <h2
-                                    class="font-medium text-slate-500 text-sm mb-5 lg:text-2xl"
-                                >
-                                    Kadang <span class="multiText"></span>
-                                </h2>
-                            </div>
-                        </div>
-
-                        <h3
-                            class="absolute bottom-28 w-8/12 text-sm lg:text-xl lg:font-medium"
-                        >
-                            kawaii kara suki nan janai.
-                        </h3>
-                    </div>
-                    <div
-                        class="bg-dsr max-w-xl mb-10 w-full lg:w-1/3 h-[25rem] lg:h-[30rem] px-4"
-                    >
-                        <div
-                            class="flex flex-wrap justify-between flex-col mx-4"
-                        >
-                            <div class="w-full my-10">
-                                <h3 class="text-[10px] text-white">
-                                    Design by Mizucode
-                                </h3>
-                            </div>
-                            <div class="w-full lg:my-10 my-28">
-                                <h1
-                                    class="font-medium lg:text-10xl text-8xl text-white"
-                                >
-                                    19
-                                </h1>
-                            </div>
-                            <div class="w-full mt-2">
-                                <h2 class="text-white">putriEnjeli</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="bg-dsr max-w-xl mb-10 w-full object-contain lg:w-1/3 h-screen lg:h-[30rem] overflow-hidden bg-cover"
-                        style="background-image: url('../img/hero.jpeg')"
-                    >
-                        <div
-                            class="bg-transparent max-w-xl mb-10 w-full lg:w-1/3 h-[30rem] px-2"
-                        >
-                            <div
-                                class="flex flex-wrap justify-between flex-col mx-4"
-                            >
-                                <div class="w-full my-10">
-                                    <h3 class="text-[10px] text-white">
-                                        August.
-                                    </h3>
-                                </div>
-                                <div class="w-full my-10">
-                                    <h1
-                                        class="font-medium lg:text-10xl text-8xl text-white"
-                                    >
-                                        01
-                                    </h1>
-                                </div>
-                                <div class="w-full mt-2">
-                                    <h2 class="text-white">BaeUput.</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                  Our Timeline
+                </span>
+              </h1>
+              <h2 class="text-2xl md:text-4xl font-medium text-lightdsr mt-4 md:mt-0">Perjalanan Kita</h2>
             </div>
-        </section>
-
-        <section id="home" class="">
-            <div class="container border-b-4 border-dsr">
-                <div class="w-full flex items-end justify-between py-5 lg:py-2">
-                    <div class="flex flex-wrap w-1/4">
-                        <h1
-                            class="text-5xl lg:text-10xl lg:whitespace-nowrap font-semibold text-dsr"
-                        >
-                            BTS ARMY
-                        </h1>
-                        <h2 class="text-4xl lg:text-8xl font-medium">
-                            ENGLISH
-                        </h2>
-                    </div>
-                    <div class="font-semibold">GEN ONE</div>
-                </div>
+            <div class="w-full md:w-1/3 text-left md:text-right">
+              <div class="inline-block glass-panel px-6 py-3 rounded-2xl shadow-sm">
+                <h3 class="font-bold text-slate-700 text-lg">Cerita <span class="text-dsr text-2xl">Kita</span></h3>
+              </div>
             </div>
-        </section>
-        <section id="home" class="">
-            <div class="container border-b-4 border-dsr">
+          </div>
+
+          <!-- The Timeline Content -->
+          <div class="mt-16 relative z-10 max-w-5xl mx-auto">
+            <!-- Central Line -->
+            <div class="absolute left-[30px] md:left-1/2 top-4 bottom-4 w-1 bg-gradient-to-b from-dsr/80 to-lightdsr/40 rounded-full -translate-x-1/2"></div>
+
+            <div class="space-y-12 md:space-y-20 relative">
+              <!-- Timeline Item 1: First Meet -->
+              <div class="relative flex flex-col md:flex-row items-center justify-between w-full group" data-aos="fade-up" data-aos-duration="800">
+                <!-- Desktop Date (Left) -->
+                <div class="w-full md:w-5/12 hidden md:block text-right md:pr-10">
+                  <h3 class="text-2xl font-bold text-dsr">August 2021</h3>
+                  <p class="text-slate-500 font-medium mt-1">Awal mula semuanya</p>
+                </div>
+
+                <!-- Circle Marker -->
                 <div
-                    class="w-full flex items-start justify-between py-5 lg:py-2"
+                  class="absolute left-[30px] md:left-1/2 top-10 md:top-1/2 w-10 h-10 rounded-full bg-white border-[4px] border-dsr -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 z-10"
                 >
-                    <div class="flex flex-wrap w-1/2">
-                        <h1 class="text-l lg:text-5xl font-semibold text-dsr">
-                            Information
-                        </h1>
-                        <h2 class="text-[0.8rem] lg:text-4xl font-medium py-8">
-                            Putri Enjeli is a Lorem ipsum dolor sit amet
-                        </h2>
-                        <h3 class="text-[0.8rem] lg:text-xl font-medium">03</h3>
-                    </div>
-                    <div class="font-medium text-[0.8rem]">GGackerman.</div>
+                  <div class="w-3 h-3 rounded-full bg-lightdsr"></div>
                 </div>
-            </div>
-        </section>
 
-        <script src="../src/js/script.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-        <script>
-            var typingeffect = new Typed(".multiText", {
-                strings: ["Moodyan", "Ngeselinnn", "Gemesss"],
-                loop: true,
-                typeSpeed: 100,
-                backSpeed: 80,
-                backDelay: 1500,
-            });
-        </script>
-        <script>
-            AOS.init();
-        </script>
-    </body>
+                <!-- Content (Right) -->
+                <div class="w-full md:w-5/12 pl-[70px] md:pl-10 text-left">
+                  <div
+                    class="glass-panel p-6 md:p-8 rounded-3xl shadow-lg border border-white/60 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+                  >
+                    <div class="absolute -right-4 -top-4 w-20 h-20 bg-dsr/10 rounded-full blur-xl"></div>
+                    <span class="md:hidden text-xs font-bold tracking-wider text-dsr block mb-2 uppercase">August 2021</span>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">✨ First Meet</h4>
+                    <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                      Pandangan pertama yang bikin deg-degan. Gak nyangka dari awalnya cuma malu-malu, akhirnya bisa sedeket ini sama kamu.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Timeline Item 2: First Date -->
+              <div class="relative flex flex-col md:flex-row-reverse items-center justify-between w-full group" data-aos="fade-up" data-aos-duration="800">
+                <!-- Desktop Date (Right) -->
+                <div class="w-full md:w-5/12 hidden md:block text-left md:pl-10">
+                  <h3 class="text-2xl font-bold text-dsr">September 2021</h3>
+                  <p class="text-slate-500 font-medium mt-1">Jalan bareng pertama kalinya</p>
+                </div>
+
+                <!-- Circle Marker -->
+                <div
+                  class="absolute left-[30px] md:left-1/2 top-10 md:top-1/2 w-10 h-10 rounded-full bg-white border-[4px] border-pink-400 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 z-10"
+                >
+                  <div class="w-3 h-3 rounded-full bg-pink-500"></div>
+                </div>
+
+                <!-- Content (Left) -->
+                <div class="w-full md:w-5/12 pl-[70px] md:pl-0 md:pr-10 text-left md:text-right">
+                  <div
+                    class="glass-panel p-6 md:p-8 rounded-3xl shadow-lg border border-white/60 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+                  >
+                    <div class="absolute -left-4 -top-4 w-20 h-20 bg-pink-300/10 rounded-full blur-xl"></div>
+                    <span class="md:hidden text-xs font-bold tracking-wider text-dsr block mb-2 uppercase">September 2021</span>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex flex-row md:flex-row-reverse items-center gap-2">🎬 First Date</h4>
+                    <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                      Hari yang paling ditunggu-tunggu. Nonton bareng, cerita banyak hal, dan rasanya waktu cepet banget berlakunya kalau bareng BaeUput.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Timeline Item 3: Official Day -->
+              <div class="relative flex flex-col md:flex-row items-center justify-between w-full group" data-aos="fade-up" data-aos-duration="800">
+                <!-- Desktop Date (Left) -->
+                <div class="w-full md:w-5/12 hidden md:block text-right md:pr-10">
+                  <h3 class="text-2xl font-bold text-dsr">01 August 2022</h3>
+                  <p class="text-slate-500 font-medium mt-1">Hari paling bahagia</p>
+                </div>
+
+                <!-- Circle Marker -->
+                <div
+                  class="absolute left-[30px] md:left-1/2 top-10 md:top-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-white to-pink-50 border-[4px] border-dsr -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300 z-10"
+                >
+                  <div class="text-lg animate-bounce mt-1" style="animation-duration: 2s">💖</div>
+                </div>
+
+                <!-- Content (Right) -->
+                <div class="w-full md:w-5/12 pl-[70px] md:pl-10 text-left">
+                  <div
+                    class="glass-panel p-6 md:p-8 rounded-3xl shadow-xl border-2 border-dsr/30 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-white/80 to-dsr/10 relative overflow-hidden"
+                  >
+                    <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-dsr/20 rounded-full blur-2xl"></div>
+                    <span class="md:hidden text-xs font-bold tracking-wider text-dsr block mb-2 uppercase">01 August 2022</span>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">💍 Official Day</h4>
+                    <p class="text-slate-600 text-sm md:text-base leading-relaxed font-medium">
+                      Akhirnya aku bisa bilang kalau kamu itu milik aku. Momen di mana kita mutusin buat nulis perjalanan cinta kita bareng-bareng secara resmi.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Timeline Item 4: Milestones -->
+              <div class="relative flex flex-col md:flex-row-reverse items-center justify-between w-full group" data-aos="fade-up" data-aos-duration="800">
+                <!-- Desktop Date (Right) -->
+                <div class="w-full md:w-5/12 hidden md:block text-left md:pl-10">
+                  <h3 class="text-2xl font-bold text-dsr">Today & Forever</h3>
+                  <p class="text-slate-500 font-medium mt-1">Cerita kita berlanjut</p>
+                </div>
+
+                <!-- Circle Marker -->
+                <div
+                  class="absolute left-[30px] md:left-1/2 top-10 md:top-1/2 w-12 h-12 rounded-full bg-gradient-to-r from-dsr to-lightdsr -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 z-10 border-4 border-white"
+                >
+                  <div class="w-4 h-4 rounded-full bg-white animate-pulse"></div>
+                </div>
+
+                <!-- Content (Left) -->
+                <div class="w-full md:w-5/12 pl-[70px] md:pl-0 md:pr-10 text-left md:text-right">
+                  <div
+                    class="glass-panel p-6 md:p-8 rounded-3xl shadow-lg border border-white/60 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+                  >
+                    <span class="md:hidden text-xs font-bold tracking-wider text-dsr block mb-2 uppercase">Today & Forever</span>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3 flex flex-row md:flex-row-reverse items-center gap-2">🚀 Milestones</h4>
+                    <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                      Beribu tawa, puluhan tempat baru yang dikunjungi, dan jutaan kenangan manis. Aku bersyukur banget bisa habisin waktu ini bareng Bubub.
+                      Love you endlessly!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Memory Lane Section -->
+        <div id="gallery" class="mt-48 mb-10 pt-10">
+          <div class="text-center mb-16">
+            <span class="text-dsr font-bold text-lg tracking-widest uppercase mb-3 block">Our Treasures</span>
+            <h2 class="text-5xl md:text-7xl font-bold text-slate-800 mb-6 font-dancing">Memory Lane</h2>
+            <p class="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto">Kumpulan momen aesthetic dan muka jelek yang tetep aku sayang. 🎬</p>
+          </div>
+
+          <!-- Swiper Container -->
+          <style>
+            .memorySwiper {
+              padding: 40px 0;
+              padding-bottom: 40px;
+              /* Allow shadow to overflow without clipping top/bottom */
+              overflow: visible !important;
+              /* Smooth fade on left and right edges */
+              -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+              mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            }
+            .memorySwiper .swiper-slide {
+              width: 300px;
+              height: 420px;
+            }
+            /* Make the continuous scrolling perfectly smooth */
+            .memorySwiper .swiper-wrapper {
+              transition-timing-function: linear !important;
+            }
+          </style>
+
+          <!-- Make the wrapper allow overflow but hide x so it doesn't break page width -->
+          <div class="overflow-x-hidden">
+            <div class="swiper memorySwiper w-full">
+              <div class="swiper-wrapper">
+                <!-- Slide 1: Photo -->
+                <div class="swiper-slide cursor-pointer">
+                  <div class="w-full h-full glass-panel rounded-3xl p-3 flex flex-col shadow-xl border-t border-l border-white/60 relative group">
+                    <div class="w-full flex-1 bg-slate-200 rounded-2xl overflow-hidden relative">
+                      <img
+                        src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=600&auto=format&fit=crop"
+                        alt="Memory"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                    <div class="h-16 flex items-center justify-center">
+                      <p class="text-center font-medium text-slate-600 font-dancing text-2xl">Cantik banget sih 😍</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 2: Photo -->
+                <div class="swiper-slide cursor-pointer">
+                  <div class="w-full h-full glass-panel rounded-3xl p-3 flex flex-col shadow-xl border-t border-l border-white/60 relative group">
+                    <div class="w-full flex-1 bg-slate-200 rounded-2xl overflow-hidden relative">
+                      <img
+                        src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=600&auto=format&fit=crop"
+                        alt="Memory"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                    <div class="h-16 flex items-center justify-center">
+                      <p class="text-center font-medium text-slate-600 font-dancing text-2xl">Waktu dating dulu ❤️</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 3: Voice Note / Video -->
+                <div class="swiper-slide cursor-pointer">
+                  <div
+                    class="w-full h-full glass-panel rounded-3xl p-6 flex flex-col justify-center items-center shadow-xl bg-gradient-to-br from-white/90 to-dsr/10 text-center border-2 border-dsr/30"
+                  >
+                    <div class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center text-4xl mb-6 border border-dsr/20 animate-bounce">
+                      🎤
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-2xl mb-2 font-dancing">Pesan Spesial</h3>
+                    <p class="text-slate-500 text-sm mb-8 font-medium">Buat kamu dengerin saat lagi kangen...</p>
+
+                    <!-- Pseudo Audio/Video Player -->
+                    <div class="w-full bg-white/80 rounded-full p-2 flex items-center gap-3 shadow-inner cursor-pointer hover:bg-white transition-colors">
+                      <button class="w-10 h-10 rounded-full bg-gradient-to-r from-dsr to-lightdsr text-white flex items-center justify-center shadow-md">
+                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                      </button>
+                      <div class="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                        <div class="w-1/3 h-full bg-dsr rounded-full"></div>
+                      </div>
+                      <span class="text-xs font-bold text-slate-400 pr-3">0:30</span>
+                    </div>
+
+                    <!-- Real hidden audio element note (Instruksi buat user) -->
+                    <p class="text-[10px] text-slate-400 mt-4 leading-tight italic">
+                      *User: Kamu bisa masukkan tag &lt;audio&gt; atau &lt;video&gt; beneran di sini nantinya.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Slide 4: Photo -->
+                <div class="swiper-slide cursor-pointer">
+                  <div class="w-full h-full glass-panel rounded-3xl p-3 flex flex-col shadow-xl border-t border-l border-white/60 relative group">
+                    <div class="w-full flex-1 bg-slate-200 rounded-2xl overflow-hidden relative">
+                      <img
+                        src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=600&auto=format&fit=crop"
+                        alt="Memory"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                    <div class="h-16 flex items-center justify-center">
+                      <p class="text-center font-medium text-slate-600 font-dancing text-2xl">Candid muka jelek 😜</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 5: Photo -->
+                <div class="swiper-slide cursor-pointer">
+                  <div class="w-full h-full glass-panel rounded-3xl p-3 flex flex-col shadow-xl border-t border-l border-white/60 relative group">
+                    <div class="w-full flex-1 bg-slate-200 rounded-2xl overflow-hidden relative">
+                      <img
+                        src="https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?q=80&w=600&auto=format&fit=crop"
+                        alt="Memory"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                    <div class="h-16 flex items-center justify-center">
+                      <p class="text-center font-medium text-slate-600 font-dancing text-2xl">Love you bubub!</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 1 (Duplicate): Photo -->
+                <div class="swiper-slide cursor-pointer">
+                  <div class="w-full h-full glass-panel rounded-3xl p-3 flex flex-col shadow-xl border-t border-l border-white/60 relative group">
+                    <div class="w-full flex-1 bg-slate-200 rounded-2xl overflow-hidden relative">
+                      <img
+                        src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=600&auto=format&fit=crop"
+                        alt="Memory"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                    <div class="h-16 flex items-center justify-center">
+                      <p class="text-center font-medium text-slate-600 font-dancing text-2xl">Cantik banget sih 😍</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 2 (Duplicate): Photo -->
+                <div class="swiper-slide cursor-pointer">
+                  <div class="w-full h-full glass-panel rounded-3xl p-3 flex flex-col shadow-xl border-t border-l border-white/60 relative group">
+                    <div class="w-full flex-1 bg-slate-200 rounded-2xl overflow-hidden relative">
+                      <img
+                        src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=600&auto=format&fit=crop"
+                        alt="Memory"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                    <div class="h-16 flex items-center justify-center">
+                      <p class="text-center font-medium text-slate-600 font-dancing text-2xl">Waktu dating dulu ❤️</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 3 (Duplicate): Voice Note / Video -->
+                <div class="swiper-slide cursor-pointer">
+                  <div
+                    class="w-full h-full glass-panel rounded-3xl p-6 flex flex-col justify-center items-center shadow-xl bg-gradient-to-br from-white/90 to-dsr/10 text-center border-2 border-dsr/30"
+                  >
+                    <div class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center text-4xl mb-6 border border-dsr/20 animate-bounce">
+                      🎤
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-2xl mb-2 font-dancing">Pesan Spesial</h3>
+                    <p class="text-slate-500 text-sm mb-8 font-medium">Buat kamu dengerin saat lagi kangen...</p>
+                    <!-- Pseudo Audio/Video Player -->
+                    <div class="w-full bg-white/80 rounded-full p-2 flex items-center gap-3 shadow-inner cursor-pointer hover:bg-white transition-colors">
+                      <button class="w-10 h-10 rounded-full bg-gradient-to-r from-dsr to-lightdsr text-white flex items-center justify-center shadow-md">
+                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                      </button>
+                      <div class="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                        <div class="w-1/3 h-full bg-dsr rounded-full"></div>
+                      </div>
+                      <span class="text-xs font-bold text-slate-400 pr-3">0:30</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 4 (Duplicate): Photo -->
+                <div class="swiper-slide cursor-pointer">
+                  <div class="w-full h-full glass-panel rounded-3xl p-3 flex flex-col shadow-xl border-t border-l border-white/60 relative group">
+                    <div class="w-full flex-1 bg-slate-200 rounded-2xl overflow-hidden relative">
+                      <img
+                        src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=600&auto=format&fit=crop"
+                        alt="Memory"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                    <div class="h-16 flex items-center justify-center">
+                      <p class="text-center font-medium text-slate-600 font-dancing text-2xl">Candid muka jelek 😜</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 5 (Duplicate): Photo -->
+                <div class="swiper-slide cursor-pointer">
+                  <div class="w-full h-full glass-panel rounded-3xl p-3 flex flex-col shadow-xl border-t border-l border-white/60 relative group">
+                    <div class="w-full flex-1 bg-slate-200 rounded-2xl overflow-hidden relative">
+                      <img
+                        src="https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?q=80&w=600&auto=format&fit=crop"
+                        alt="Memory"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                    <div class="h-16 flex items-center justify-center">
+                      <p class="text-center font-medium text-slate-600 font-dancing text-2xl">Love you bubub!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-slate-500 text-sm mt-10 relative z-10">
+      <p class="font-medium">Made with ❤️ by Mizucode for the most beautiful girl.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../src/js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <script>
+      // Init AOS
+      AOS.init({
+        once: true,
+        offset: 50,
+      })
+
+      // Init Swiper (Memory Lane) — seamless infinite carousel
+      const memorySwiper = new Swiper('.memorySwiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+        },
+        loop: true,
+        speed: 8000,
+        allowTouchMove: false,
+        simulateTouch: false,
+      })
+
+      window.addEventListener('scroll', function () {
+        const header = document.querySelector('header')
+        const headerInner = document.querySelector('header > div')
+
+        if (window.scrollY > 50) {
+          // Adjust header container
+          header.classList.add('top-0', 'w-full', 'max-w-full')
+          header.classList.remove('top-4', 'w-[95%]', 'max-w-5xl')
+
+          // Adjust inner glass panel
+          headerInner.classList.add('py-4', 'rounded-none', 'shadow-md')
+          headerInner.classList.remove('py-3', 'rounded-full', 'shadow-lg')
+          headerInner.style.backgroundColor = 'rgba(255, 255, 255, 0.85)'
+        } else {
+          // Revert header container
+          header.classList.add('top-4', 'w-[95%]', 'max-w-5xl')
+          header.classList.remove('top-0', 'w-full', 'max-w-full')
+
+          // Revert inner glass panel
+          headerInner.classList.add('py-3', 'rounded-full', 'shadow-lg')
+          headerInner.classList.remove('py-4', 'rounded-none', 'shadow-md')
+          headerInner.style.backgroundColor = 'rgba(255, 255, 255, 0.65)'
+        }
+      })
+    </script>
+  </body>
 </html>

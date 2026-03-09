@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinite Autoplay Coverflow</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+      body {
+        background: #000;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: 'Arial', sans-serif;
+      }
+
+      .swiper {
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+      .swiper-slide {
+        width: 300px;
+        height: 400px;
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #222; /* Warna card polos */
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        border: 1px solid #444;
+
+        /* Efek Blur & Transisi */
+        filter: blur(10px);
+        opacity: 0.3;
+        transition: all 0.6s ease-in-out;
+        transform: scale(0.8);
+      }
+
+      /* Tampilan Card Aktif (Tengah) */
+      .swiper-slide-active {
+        filter: blur(0px);
+        opacity: 1;
+        transform: scale(1);
+        background: linear-gradient(135deg, #00c6ff, #0072ff); /* Warna khusus card tengah */
+        border: none;
+        box-shadow: 0 15px 50px rgba(0, 114, 255, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Card 1</div>
+        <div class="swiper-slide">Card 2</div>
+        <div class="swiper-slide">Card 3</div>
+        <div class="swiper-slide">Card 4</div>
+        <div class="swiper-slide">Card 5</div>
+        <div class="swiper-slide">Card 6</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      var swiper = new Swiper('.mySwiper', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        loop: true, // Infinite loop
+
+        // KONFIGURASI AUTOPLAY
+        autoplay: {
+          delay: 2000, // Kecepatan pindah (2 detik)
+          disableOnInteraction: false, // Tetap autoplay walau user klik/swipe manual
+          pauseOnMouseEnter: true, // Berhenti sementara kalau mouse di atas card
+        },
+
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 150,
+          modifier: 2.5,
+          slideShadows: false,
+        },
+      })
+    </script>
+  </body>
+</html>
